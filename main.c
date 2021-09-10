@@ -7,7 +7,7 @@ int main(){
     if (scanf("%d", &num) == 1) {
         printf("Вы ввели целое число - %d", num);
     }
-    else if (scanf("%s", &str) == 1) {
+    else if (scanf("%[^\n]s", &str) == 1) {
         printf("Вы ввели строку - %s", str);
     }
     return 0;
