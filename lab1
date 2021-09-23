@@ -4,11 +4,14 @@ int main(){
     int num;
     char str[1000];
     printf("Введите строку или целое число\n");
-    if (scanf("%d", &num) == 1) {
+    if (scanf("%d", &num) == 1)
+    {
         printf("Вы ввели целое число - %d", num);
     }
-    else if (scanf("%[^\n]s", &str) == 1) {
-        printf("Вы ввели строку - %s", str);
+    else
+    {
+        gets(str);
+        printf("Вы ввели строку - %s\n", str);
     }
     return 0;
 }
