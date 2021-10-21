@@ -1,0 +1,27 @@
+#include "stdlib.h"
+#include "stdio.h"
+
+int main() {
+    char a[4] = {0};
+    printf("Введите буквы из задания через пробел: ");
+    for (int i = 0; i < 4; i++) {
+        scanf("%c", &a[i]);
+    }
+
+    int size = sizeof(a) / sizeof(a[0]);
+    char *numb = a;
+    for (int i = 0; i < 4; i++) {
+        printf("%c ", *(numb + i));
+    }
+    printf("\n");
+    char *mas = NULL;
+    mas = (int *) malloc(size);
+    for (int i = 0; i < 4; i++) {
+        scanf("%c", &mas[i]);
+    }
+    for (int i = 0; i < size; i++) {
+        printf("%c ", *(mas + i));
+    }
+    free(mas);
+    return 0;
+}
