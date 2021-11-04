@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+enum days {
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+    sunday
+};
+
+struct square {
+    int a, b;
+    int c, d;
+};
+
+struct MP3 {
+    unsigned int PLAY: 1;
+    unsigned int PAUSE: 1;
+    unsigned int RECORD: 1;
+};
+
+union myunion {
+    struct MP3 b;
+    short i;
+};
+
+int main() {
+    // задание 1
+
+    enum days mon;
+    mon = monday;
+    printf("1) Понедельник - %d\n", mon);
+
+    // задание 2
+
+    struct square ans = {1, 1, 1, 1};
+    int p = ans.a + ans.b + ans.c + ans.d;
+    printf("2) Периметр квадрата = %d\n", p);
+
+    // задание 3
+
+    union myunion t;
+    scanf("%x", &t.i);
+    printf("3) \n");
+    printf("PLAY - %d\n", t.b.PLAY);
+    printf("PAUSE - %d\n", t.b.PAUSE);
+    printf("RECORD - %d\n", t.b.RECORD);
+
+    return 0;
+}
