@@ -12,7 +12,6 @@ enum days {
 
 struct square {
     int a;
-    int x, y
 };
 
 int p(a){
@@ -40,8 +39,8 @@ int main() {
 
     // задание 2
 
-    struct square ans = { 1 };
-    printf("2) Периметр квадрата = %d\n", p(ans.a, ans.x, ans.y));
+    struct square ans = { 1, };
+    printf("2) Периметр квадрата = %d\n", p(ans.a));
 
     // задание 3
 
