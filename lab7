@@ -11,9 +11,14 @@ enum days {
 };
 
 struct square {
-    int a, b;
-    int c, d;
+    int a;
+    int x, y
 };
+
+int p(a){
+    int per = a * 4;
+    return(per);
+}
 
 struct MP3 {
     unsigned int PLAY: 1;
@@ -35,18 +40,17 @@ int main() {
 
     // задание 2
 
-    struct square ans = {1, 1, 1, 1};
-    int p = ans.a + ans.b + ans.c + ans.d;
-    printf("2) Периметр квадрата = %d\n", p);
+    struct square ans = { 1 };
+    printf("2) Периметр квадрата = %d\n", p(ans.a, ans.x, ans.y));
 
     // задание 3
 
-    union myunion t;
-    scanf("%x", &t.i);
+    union myunion press;
+    scanf("%x", &press.i);
     printf("3) \n");
-    printf("PLAY - %d\n", t.b.PLAY);
-    printf("PAUSE - %d\n", t.b.PAUSE);
-    printf("RECORD - %d\n", t.b.RECORD);
+    printf("PLAY - %d\n", press.b.PLAY);
+    printf("PAUSE - %d\n", press.b.PAUSE);
+    printf("RECORD - %d\n", press.b.RECORD);
 
     return 0;
 }
