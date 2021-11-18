@@ -1,1 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    // 1 задание
+    printf("1)\n\n");
+
+    char a[1000];
+    printf("Введите строку: ");
+    scanf("%s", &a);
+
+    int i = 0;
+    while (a[i] != NULL)
+        i++;
+
+    printf("\nКол-во символов в строке: %d\n\n", i);
+
+    // 2 задание
+    printf("2)\n\n");
+
+    int time;
+    printf("Введите кол-во минут: ");
+    scanf("%d", &time);
+
+    if (time <= 499)
+        printf("К оплате 499 руб.\n");
+    else
+        printf("К оплате %d", (time - 499) * 2 + 499);
+
+    return 0;
+}
 
