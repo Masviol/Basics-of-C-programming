@@ -1,1 +1,67 @@
+#include <stdio.h>
+#include <math.h>
+
+int NOD(num1, num2) {
+    int N;
+    for (int i = 1; i <= num1; i++) {
+        if (num1 % i == 0 && num2 % i == 0)
+            N = i;
+    }
+    return N;
+}
+
+void dist(**a, ram) {
+    for (int i = 0; i < ram; i++) {
+        printf("%d) ", i + 1);
+
+        if (i == 0) {
+            int j = 1;
+            while (j < ram) {
+                printf("%.2f", sqrt(pow(a[j][ram] - a[i][ram], 2) + pow(a[ram][j] - a[ram][i], 2)));
+                j++;
+            }
+        }
+    }
+}
+
+int main() {
+    // 1 задание
+    printf("1)\n\n");
+
+    int num1;
+    int num2;
+    printf("Введите 2 натуральных числа: ");
+    scanf("%d %d", &num1, &num2);
+
+    printf("НОД : %d\n", NOD(num1, num2));
+
+    printf("НОК : %d\n\n", (num1 * num2) / NOD(num1, num2));
+
+    //2 задание
+    printf("2)\n\n");
+
+    printf("Напишите кол-во точек: ");
+    int ram;
+    scanf("%d", &ram);
+
+    int a[ram + 1][ram + 1];
+    a[ram][ram] = 0, 0;
+
+    for(int i = 0; i < ram; i++) {
+
+        printf("Задайте X : ");
+        int x;
+        scanf("%d", &x);
+
+        printf("Задайте Y : ");
+        int y;
+        scanf("%d", &y);
+        a[i][i] = x, y;
+    }
+
+    dist(a, ram);
+
+
+    return 0;
+}
 
