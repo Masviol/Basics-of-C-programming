@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
+typedef struct {
+    int X, Y;
+} coords;
+
 int NOD(num1, num2) {
     int N;
     for (int i = 1; i <= num1; i++) {
@@ -10,17 +14,29 @@ int NOD(num1, num2) {
     return N;
 }
 
-void dist(**a, ram) {
-    for (int i = 0; i < ram; i++) {
-        printf("%d) ", i + 1);
+void dist(coords Cords[], int count) {
 
-        if (i == 0) {
-            int j = 1;
-            while (j < ram) {
-                printf("%.2f", sqrt(pow(a[j][ram] - a[i][ram], 2) + pow(a[ram][j] - a[ram][i], 2)));
-                j++;
+    int repair = 0;
+    float distance[count - 1];
+
+    for (int i = 0; i < count; i++) {
+        printf("Введите координаты X и Y: ");
+        scanf("%d %d", &Cords[i].X, &Cords[i].Y);
+    }
+
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < count; j++) {
+            if (i != j) {
+                distance[i * count + j - repair] = sqrt(pow(Cords[i].X - Cords[j].X, 2) +
+                                                        pow(Cords[i].Y - Cords[j].Y, 2));
+            } else {
+                repair++;
             }
         }
+    }
+
+    for (int i = 0; i < count * (count - 1); i++) {
+        printf("%.2f \n", distance[i]);
     }
 }
 
@@ -40,28 +56,12 @@ int main() {
     //2 задание
     printf("2)\n\n");
 
-    printf("Напишите кол-во точек: ");
-    int ram;
-    scanf("%d", &ram);
+    int count, number;
+    printf("Введите кол-во координат: ");
+    scanf("%d", &count);
 
-    int a[ram + 1][ram + 1];
-    a[ram][ram] = 0, 0;
-
-    for(int i = 0; i < ram; i++) {
-
-        printf("Задайте X : ");
-        int x;
-        scanf("%d", &x);
-
-        printf("Задайте Y : ");
-        int y;
-        scanf("%d", &y);
-        a[i][i] = x, y;
-    }
-
-    dist(a, ram);
-
+    coords Cord[count];
+    dist(Cord, count);
 
     return 0;
 }
-
