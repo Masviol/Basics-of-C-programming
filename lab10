@@ -17,7 +17,7 @@ int NOD(num1, num2) {
 void dist(coords Cords[], int count) {
 
     int repair = 0;
-    float distance[count - 1];
+    float distance[count *(count - 1)];
 
     for (int i = 0; i < count; i++) {
         printf("Введите координаты X и Y: ");
@@ -36,7 +36,7 @@ void dist(coords Cords[], int count) {
     }
 
     for (int i = 0; i < count * (count - 1); i++) {
-        printf("%.2f \n", distance[i]);
+        printf("%d) %.2f \n",i + 1, distance[i]);
     }
 }
 
