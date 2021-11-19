@@ -1,18 +1,22 @@
 #include <stdio.h>
 
-int main() {
-    // 1 задание
-    printf("1)\n\n");
+int main()
+{
+    char a[80];
+    int countNumber = 0, countUpper = 0, countLower = 0;
 
-    char a[1000];
-    printf("Введите строку: ");
-    scanf("%s", &a);
+    printf("\n Введите строку : \n");
+    gets(a);
 
-    int i = 0;
-    while (a[i] != NULL)
-        i++;
+    for (int n = 0; n < sizeof(a) / sizeof(char) - 1; n++)
+    {
+        if (a[n] >= '0' && a[n] <= '9') countNumber++;
+        else if (a[n] >= 'A' && a[n] <= 'Z') countUpper++;
+        else if (a[n] >= 'a' && a[n] <= 'z') countLower++;
+    }
 
-    printf("\nКол-во символов в строке: %d\n\n", i);
+    printf("\n Чисел = %d \n Заглавных = %d \n Прописных = %d\n\n", countNumber, countUpper, countLower);
+
 
     // 2 задание
     printf("2)\n\n");
@@ -28,4 +32,3 @@ int main() {
 
     return 0;
 }
-
